@@ -5,7 +5,6 @@ import SubjectModel from "../models/subject";
 const insertSubject=async(item:Subject)=>{
     const responseInsert=await SubjectModel.create(item);
     return responseInsert;
-    console.log(responseInsert);
 };
 
 const getSubjects=async()=>{
@@ -44,13 +43,12 @@ const matriculateSubject=async(idUser:string,idSubject:string)=>{
     return responseItem;
 };
 const getUsers = async (idSubject: string) => {
-    const subject = await SubjectModel.findById(idSubject);
+    const subject = await SubjectModel.findOne({_id:idSubject}).populate('users');
     if (!subject) {
       throw new Error("User not found");
     }
-    const users= await subject.users
+    const users= await subject.users;
     return users;
   };
-
 
 export { insertSubject, getSubject, getSubjects, updateSubject, deleteSubject, matriculateSubject,getUsers };

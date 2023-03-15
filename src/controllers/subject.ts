@@ -21,9 +21,10 @@ const get_Subjects = async (req:Request,res:Response) => {
         handleHttp(res,"ERROR_GET_SUBJECT");
     }
 };
-const get_Users = async (req:Request,res:Response) => {
+const get_Users = async ({params}:Request,res:Response) => {
     try{
-        const response = await getSubjects();
+        const {idSubject} = params;
+        const response = await getUsers(idSubject);
         res.send(response);
     } catch(e){
         handleHttp(res,"ERROR_GET_USER");

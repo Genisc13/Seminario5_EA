@@ -13,6 +13,5 @@ router.get("/:idUser", getPerson);
 router.post("/",postPerson);
 router.put("/:idUser",updatePerson);
 router.delete("/:idUser",deletePerson);
-router.get("/subjects/:idUser",getAsignaturas)
-
+router.get("/subjects/:idUser",getAsignaturas);
 export {router};

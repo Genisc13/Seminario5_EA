@@ -29,7 +29,7 @@ const getAsignaturas=async({params}:Request,res:Response)=>{
     } catch(e){
         handleHttp(res,"ERROR_GET_SUBJECTS_USER");
     }
-}
+};
 
 const updatePerson=async ({params,body}:Request,res:Response)=>{
     try{
